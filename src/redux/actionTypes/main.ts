@@ -1,3 +1,5 @@
+import { AlbumI } from "../../interfaces/trackInterfaces"
+
 export const FETCH_SONGS_GET = "FETCH_SONGS_GET"
 export const FETCH_SONGS_START = "FETCH_SONGS_START"
 export const FETCH_SONGS_SUCCESS = "FETCH_SONGS_SUCCESS"
@@ -10,7 +12,7 @@ interface StartFetchSongs {
 }
 interface SuccessFetchSongs {
     type: typeof FETCH_SONGS_SUCCESS
-    data: any
+    albums: Array<AlbumI>
 }
 
 export type FetchSongsTypes =

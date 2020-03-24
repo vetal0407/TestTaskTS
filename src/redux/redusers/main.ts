@@ -4,13 +4,17 @@ import {
 
     FetchSongsTypes
 } from '../actionTypes/main'
+import { AlbumI } from "../../interfaces/trackInterfaces"
 
-const initialState = {
-    data: null,
-    isLoading: true
+interface InitialState {
+    albums: Array<AlbumI>
+    isLoading: boolean
 }
 
-type InitialState = typeof initialState;
+const initialState: InitialState = {
+    albums: [],
+    isLoading: true
+}
 
 export default function mainReducer(state = initialState, action: FetchSongsTypes): InitialState{
     switch (action.type){
@@ -22,7 +26,7 @@ export default function mainReducer(state = initialState, action: FetchSongsType
         case FETCH_SONGS_SUCCESS:
             return {
                 ...state,
-                data: action.data,
+                albums: action.albums,
                 isLoading: false
             }
         default :

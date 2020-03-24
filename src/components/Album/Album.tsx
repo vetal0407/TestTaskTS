@@ -7,10 +7,12 @@ import {
 
 import Track from '../Track/Track'
 
+import { AlbumI, TrackI } from "../../interfaces/trackInterfaces"
+
 import styles from './styles'
 
 type Props = {
-    album: any
+    album: AlbumI
 }
 
 const Album: React.FC<Props> = ({ album }) => {
@@ -26,7 +28,7 @@ const Album: React.FC<Props> = ({ album }) => {
                 </Text>
             </View>
             {
-                album.tracks.map(track => <Track
+                album.tracks.map((track: TrackI) => <Track
                     key={track.key}
                     track={track}
                 />)

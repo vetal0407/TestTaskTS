@@ -5,11 +5,12 @@ import {
 
     FetchSongsTypes
 } from '../actionTypes/main'
+import { AlbumI } from "../../interfaces/trackInterfaces"
 
 export const fetchSongsGet = (): FetchSongsTypes => ({type: FETCH_SONGS_GET})
 export const fetchSongsStart = (): FetchSongsTypes => ({type: FETCH_SONGS_START})
-export const fetchSongsSuccess = (data: any): FetchSongsTypes => ({
+export const fetchSongsSuccess = (albums: Array<AlbumI>): FetchSongsTypes => ({
     type: FETCH_SONGS_SUCCESS,
-    data: data
+    albums
 })
 export const fetchSongsError = (e: any): void => console.log(e)

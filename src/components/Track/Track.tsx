@@ -6,10 +6,12 @@ import {
 
 import SoundPlayer from 'react-native-sound-player'
 
+import { TrackI } from "../../interfaces/trackInterfaces"
+
 import styles from './styles'
 
 type Props = {
-    track: any
+    track: TrackI
 }
 
 const Track: React.FC<Props> = ({ track }) => {

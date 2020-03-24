@@ -9,10 +9,12 @@ import Album from '../../components/Album/Album'
 import Loading from '../../components/Loading/Loading'
 import { AppState } from "../../redux/rootReducer"
 
+import { AlbumI } from "../../interfaces/trackInterfaces"
+
 type Props = MapStateToPropsI & MapDispatchToPropsI
 
 const Main: React.FC<Props> = ({
-    data,
+    albums,
     isLoading,
 
     fetchSongsGet
@@ -25,7 +27,7 @@ const Main: React.FC<Props> = ({
   return (
     <ScrollView>
       {!isLoading
-        ? data.map(album => <Album
+        ? albums.map((album: AlbumI) => <Album
               key={album.id}
               album={album}
           />)
@@ -36,7 +38,7 @@ const Main: React.FC<Props> = ({
 }
 
 interface MapStateToPropsI {
-  data: any,
+  albums: Array<AlbumI>,
   isLoading: boolean,
 }
 
@@ -46,7 +48,7 @@ interface MapDispatchToPropsI {
 
 function mapStateToProps(state: AppState): MapStateToPropsI {
   return {
-    data: state.main.data,
+    albums: state.main.albums,
     isLoading: state.main.isLoading,
   }
 }
